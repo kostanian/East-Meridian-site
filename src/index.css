@@ -1,50 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* TruckMiles Pro Design System */
-
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 215 25% 15%;
+    --background: 220 20% 97%;
+    --foreground: 220 30% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 220 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 220 30% 10%;
 
-    --primary: 215 50% 23%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 75% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 25% 93%;
-    --secondary-foreground: 215 25% 25%;
+    --secondary: 220 25% 93%;
+    --secondary-foreground: 220 30% 15%;
 
-    --muted: 210 20% 94%;
-    --muted-foreground: 215 15% 45%;
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 200 80% 45%;
+    --accent: 35 95% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 88%;
-    --input: 214 25% 88%;
-    --ring: 215 50% 23%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 0 75% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Table-specific tokens */
-    --table-header: 215 50% 23%;
-    --table-header-foreground: 0 0% 100%;
-    --table-row: 0 0% 100%;
-    --table-row-alt: 210 20% 97%;
-    --table-row-hover: 200 60% 95%;
-    --table-footer: 215 35% 30%;
-    --table-footer-foreground: 0 0% 100%;
-    --table-border: 214 25% 85%;
+    --hero-overlay: 220 40% 8%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -57,43 +49,35 @@
   }
 
   .dark {
-    --background: 215 30% 10%;
-    --foreground: 210 20% 95%;
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
 
-    --card: 215 30% 13%;
-    --card-foreground: 210 20% 95%;
+    --card: 220 25% 12%;
+    --card-foreground: 220 15% 95%;
 
-    --popover: 215 30% 13%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 15% 95%;
 
-    --primary: 200 80% 55%;
-    --primary-foreground: 215 30% 10%;
+    --primary: 0 75% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 20%;
-    --secondary-foreground: 210 20% 90%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 15% 90%;
 
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 15% 60%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 200 80% 55%;
-    --accent-foreground: 215 30% 10%;
+    --accent: 35 95% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 45%;
+    --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 25% 22%;
-    --input: 215 25% 22%;
-    --ring: 200 80% 55%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 0 75% 55%;
 
-    /* Table-specific tokens - dark */
-    --table-header: 215 35% 18%;
-    --table-header-foreground: 210 20% 95%;
-    --table-row: 215 30% 13%;
-    --table-row-alt: 215 30% 15%;
-    --table-row-hover: 200 40% 20%;
-    --table-footer: 215 40% 15%;
-    --table-footer-foreground: 210 20% 95%;
-    --table-border: 215 25% 25%;
+    --hero-overlay: 220 40% 5%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -113,21 +97,17 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
-@layer components {
-  .table-cell {
-    @apply px-3 py-2.5 border-r border-b flex items-center;
-    border-color: hsl(var(--table-border));
-  }
-
-  .table-cell:last-child {
-    @apply border-r-0;
-  }
-
-  .table-input {
-    @apply border-table-border bg-background focus:ring-1 focus:ring-accent focus:border-accent;
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(0 75% 55%), hsl(35 95% 55%));
   }
 }
