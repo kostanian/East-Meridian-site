@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-logistics.jpg';
 
@@ -20,7 +21,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-primary/20 text-primary border border-primary/30 mb-6">
-              🇨🇳 Ваш надёжный партнёр в Китае
+              🇨🇳 Ваш операционный партнёр в Китае
             </span>
           </motion.div>
 
@@ -30,9 +31,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-6"
           >
-            Доставка из Китая
+            Бизнес-услуги
             <br />
-            <span className="text-gradient">в Россию и Казахстан</span>
+            <span className="text-gradient">в Китае «под ключ»</span>
           </motion.h1>
 
           <motion.p
@@ -41,8 +42,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-white/70 mb-10 max-w-xl leading-relaxed"
           >
-            Комплексные бизнес-услуги: логистика, фулфилмент, регистрация торговых марок, 
-            проверка контрагентов и финансовые операции.
+            Закупки, логистика, фулфилмент, финансы, юридическая поддержка и многое другое — 
+            для бизнеса из России и Казахстана.
           </motion.p>
 
           <motion.div
@@ -51,13 +52,17 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="flex flex-wrap gap-4"
           >
-            <Button size="lg" className="text-base px-8 py-6 rounded-xl font-bold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all">
-              Получить консультацию
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-xl font-bold border-white/20 text-white hover:bg-white/10 hover:text-white">
-              Наши услуги
-            </Button>
+            <Link to="/contacts">
+              <Button size="lg" className="text-base px-8 py-6 rounded-xl font-bold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all">
+                Получить консультацию
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-xl font-bold border-white/20 text-white hover:bg-white/10 hover:text-white">
+                Наши услуги
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Stats */}

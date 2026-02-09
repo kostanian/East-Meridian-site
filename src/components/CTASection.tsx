@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, Send } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
@@ -19,17 +20,27 @@ const CTASection = () => {
             Готовы начать работу с Китаем?
           </h2>
           <p className="text-lg text-white/80 mb-10 leading-relaxed">
-            Оставьте заявку и получите бесплатный расчёт стоимости доставки 
+            Оставьте заявку и получите бесплатный расчёт стоимости 
             или консультацию по любой из наших услуг
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-base px-8 py-6 rounded-xl font-bold shadow-lg">
-              Оставить заявку
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Link to="/contacts">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-base px-8 py-6 rounded-xl font-bold shadow-lg">
+                Оставить заявку
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base px-8 py-6 rounded-xl font-bold" asChild>
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                WhatsApp
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base px-8 py-6 rounded-xl font-bold">
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Написать в WhatsApp
+            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base px-8 py-6 rounded-xl font-bold" asChild>
+              <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+                <Send className="mr-2 h-5 w-5" />
+                Telegram
+              </a>
             </Button>
           </div>
         </motion.div>
