@@ -1,17 +1,24 @@
-import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, MessageCircle, Send } from 'lucide-react';
 import { serviceCategories } from '@/data/services';
 
 const Footer = () => {
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-[hsl(220,30%,10%)] text-white/70 py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <Link to="/" className="text-2xl font-black text-white mb-3 block">
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="text-2xl font-black text-white mb-3 block"
+            >
               China<span className="text-primary">Trade</span>
-            </Link>
+            </a>
             <p className="text-sm leading-relaxed mb-4">
               Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
             </p>
@@ -31,16 +38,11 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               {serviceCategories.slice(0, 6).map((cat) => (
                 <li key={cat.slug}>
-                  <Link to={`/services/${cat.slug}`} className="hover:text-white transition-colors">
+                  <button onClick={() => scrollTo('#services')} className="hover:text-white transition-colors text-left">
                     {cat.shortTitle}
-                  </Link>
+                  </button>
                 </li>
               ))}
-              <li>
-                <Link to="/services" className="text-primary hover:text-primary/80 transition-colors font-medium">
-                  Все услуги →
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -48,10 +50,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white mb-4">Компания</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-white transition-colors">О компании</Link></li>
-              <li><Link to="/process" className="hover:text-white transition-colors">Как мы работаем</Link></li>
-              <li><Link to="/cases" className="hover:text-white transition-colors">Кейсы</Link></li>
-              <li><Link to="/contacts" className="hover:text-white transition-colors">Контакты</Link></li>
+              <li><button onClick={() => scrollTo('#about')} className="hover:text-white transition-colors">О компании</button></li>
+              <li><button onClick={() => scrollTo('#process')} className="hover:text-white transition-colors">Как мы работаем</button></li>
+              <li><button onClick={() => scrollTo('#cases')} className="hover:text-white transition-colors">Кейсы</button></li>
+              <li><button onClick={() => scrollTo('#contacts')} className="hover:text-white transition-colors">Контакты</button></li>
             </ul>
           </div>
 

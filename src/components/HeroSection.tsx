@@ -1,16 +1,19 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-logistics.jpg';
 
 const HeroSection = () => {
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroImage} alt="Контейнерный порт в Китае" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,40%,8%)/0.92] via-[hsl(220,40%,8%)/0.75] to-[hsl(220,40%,8%)/0.5]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,40%,4%)]/95 via-[hsl(220,40%,4%)]/85 to-[hsl(220,40%,4%)]/65" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -29,7 +32,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-6"
+            className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 drop-shadow-lg"
           >
             Бизнес-услуги
             <br />
@@ -40,7 +43,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl text-white/70 mb-10 max-w-xl leading-relaxed"
+            className="text-lg md:text-xl text-white/85 mb-10 max-w-xl leading-relaxed drop-shadow-md"
           >
             Закупки, логистика, фулфилмент, финансы, юридическая поддержка и многое другое — 
             для бизнеса из России и Казахстана.
@@ -52,17 +55,22 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="flex flex-wrap gap-4"
           >
-            <Link to="/contacts">
-              <Button size="lg" className="text-base px-8 py-6 rounded-xl font-bold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all">
-                Получить консультацию
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/services">
-              <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-xl font-bold border-white/20 text-white hover:bg-white/10 hover:text-white">
-                Наши услуги
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-base px-8 py-6 rounded-xl font-bold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all"
+              onClick={() => scrollTo('#contacts')}
+            >
+              Получить консультацию
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-base px-8 py-6 rounded-xl font-bold border-white/30 text-white hover:bg-white/10 hover:text-white"
+              onClick={() => scrollTo('#services')}
+            >
+              Наши услуги
+            </Button>
           </motion.div>
 
           {/* Stats */}
@@ -78,8 +86,8 @@ const HeroSection = () => {
               { value: '99%', label: 'Довольных клиентов' },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className="text-3xl md:text-4xl font-black text-white">{stat.value}</div>
-                <div className="text-sm text-white/50 mt-1">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-black text-white drop-shadow-md">{stat.value}</div>
+                <div className="text-sm text-white/60 mt-1">{stat.label}</div>
               </div>
             ))}
           </motion.div>
