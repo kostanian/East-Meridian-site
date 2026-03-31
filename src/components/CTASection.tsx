@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 const CTASection = () => {
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,75%,50%)] to-[hsl(0,75%,35%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(215,75%,45%)] to-[hsl(215,65%,30%)]" />
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djZoLTZWMzBoLTRWMjBoNHYtNmg2djZoNHYxMGgtNHY0eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
 
       <div className="container mx-auto px-4 relative z-10">

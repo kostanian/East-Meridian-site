@@ -72,7 +72,7 @@ const casePlaceholders = [
 const contacts = [
   { icon: MapPin, label: 'Офис', value: 'Гуанчжоу, Китай' },
   { icon: Phone, label: 'Телефон', value: '+86 XXX XXXX XXXX' },
-  { icon: Mail, label: 'Email', value: 'info@chinatrade.com' },
+  { icon: Mail, label: 'Email', value: 'info@eastmeridian.com' },
 ];
 
 const Index = () => {
@@ -149,7 +149,7 @@ const Index = () => {
               Почему нам <span className="text-gradient">доверяют</span>
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-              ChinaTrade — ваша операционная инфраструктура в Китае для бизнеса из России и Казахстана
+              East Meridian — ваша операционная инфраструктура в Китае для бизнеса из России и Казахстана
             </p>
           </motion.div>
 
@@ -275,13 +275,13 @@ const Index = () => {
 
               <h3 className="text-lg font-bold text-foreground mb-4">Мессенджеры</h3>
               <div className="flex flex-wrap gap-3">
-                <Button variant="outline" className="rounded-xl" asChild>
+                <Button className="rounded-xl bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white font-bold" asChild>
                   <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2 h-4 w-4" />
                     WhatsApp
                   </a>
                 </Button>
-                <Button variant="outline" className="rounded-xl" asChild>
+                <Button className="rounded-xl bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white font-bold" asChild>
                   <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
                     <SendIcon className="mr-2 h-4 w-4" />
                     Telegram

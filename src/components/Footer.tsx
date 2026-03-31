@@ -7,7 +7,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[hsl(220,30%,10%)] text-white/70 py-16">
+    <footer className="bg-[hsl(215,30%,10%)] text-white/70 py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -15,9 +15,9 @@ const Footer = () => {
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="text-2xl font-black text-white mb-3 block"
+              className="text-2xl font-black text-white mb-3 block tracking-wide"
             >
-              China<span className="text-primary">Trade</span>
+              EAST<span className="text-primary"> MERIDIAN</span>
             </a>
             <p className="text-sm leading-relaxed mb-4">
               Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
@@ -51,7 +51,7 @@ const Footer = () => {
             <h4 className="font-bold text-white mb-4">Компания</h4>
             <ul className="space-y-2 text-sm">
               <li><button onClick={() => scrollTo('#about')} className="hover:text-white transition-colors">О компании</button></li>
-              <li><button onClick={() => scrollTo('#process')} className="hover:text-white transition-colors">Как мы работаем</button></li>
+              <li><button onClick={() => scrollTo('#advantages')} className="hover:text-white transition-colors">Преимущества</button></li>
               <li><button onClick={() => scrollTo('#cases')} className="hover:text-white transition-colors">Кейсы</button></li>
               <li><button onClick={() => scrollTo('#contacts')} className="hover:text-white transition-colors">Контакты</button></li>
             </ul>
@@ -71,14 +71,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
-                info@chinatrade.com
+                info@eastmeridian.com
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm">
-          <p>© {new Date().getFullYear()} ChinaTrade. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} East Meridian. Все права защищены.</p>
         </div>
       </div>
     </footer>

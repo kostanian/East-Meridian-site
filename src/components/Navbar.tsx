@@ -31,16 +31,16 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-[hsl(220,30%,8%)] shadow-lg shadow-black/20'
-        : 'bg-[hsl(220,30%,10%)]/85 backdrop-blur-xl'
+        ? 'bg-[hsl(215,30%,8%)] shadow-lg shadow-black/20'
+        : 'bg-[hsl(215,30%,10%)]/85 backdrop-blur-xl'
     } border-b border-white/5`}>
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="text-xl font-black text-white"
+          className="text-xl font-black text-white tracking-wide"
         >
-          China<span className="text-primary">Trade</span>
+          EAST<span className="text-primary"> MERIDIAN</span>
         </a>
 
         {/* Desktop */}
@@ -67,7 +67,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-[hsl(220,30%,8%)] border-b border-white/5 px-4 py-6 space-y-2">
+        <div className="lg:hidden bg-[hsl(215,30%,8%)] border-b border-white/5 px-4 py-6 space-y-2">
           {links.map((link) => (
             <button
               key={link.href}
