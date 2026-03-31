@@ -149,7 +149,7 @@ const Index = () => {
               Почему нам <span className="text-gradient">доверяют</span>
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-              ChinaTrade — ваша операционная инфраструктура в Китае для бизнеса из России и Казахстана
+              East Meridian — ваша операционная инфраструктура в Китае для бизнеса из России и Казахстана
             </p>
           </motion.div>
 
