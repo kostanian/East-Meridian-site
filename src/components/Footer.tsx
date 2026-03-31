@@ -7,7 +7,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[hsl(220,30%,10%)] text-white/70 py-16">
+    <footer className="bg-[hsl(215,30%,10%)] text-white/70 py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
