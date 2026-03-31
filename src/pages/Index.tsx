@@ -134,7 +134,6 @@ const Index = () => {
       </section>
 
       <AdvantagesSection />
-      <HowItWorksSection />
 
       {/* About / Why trust us */}
       <section id="about" className="py-24 bg-card">
