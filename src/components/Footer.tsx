@@ -78,7 +78,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm">
-          <p>© {new Date().getFullYear()} ChinaTrade. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} East Meridian. Все права защищены.</p>
         </div>
       </div>
     </footer>

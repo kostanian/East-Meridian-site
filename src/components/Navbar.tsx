@@ -38,9 +38,9 @@ const Navbar = () => {
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="text-xl font-black text-white"
+          className="text-xl font-black text-white tracking-wide"
         >
-          China<span className="text-primary">Trade</span>
+          EAST<span className="text-primary"> MERIDIAN</span>
         </a>
 
         {/* Desktop */}
