@@ -15,9 +15,9 @@ const Footer = () => {
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="text-2xl font-black text-white mb-3 block"
+              className="text-2xl font-black text-white mb-3 block tracking-wide"
             >
-              China<span className="text-primary">Trade</span>
+              EAST<span className="text-primary"> MERIDIAN</span>
             </a>
             <p className="text-sm leading-relaxed mb-4">
               Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
