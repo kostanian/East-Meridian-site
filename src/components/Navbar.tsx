@@ -15,7 +15,7 @@ const Navbar = () => {
   const links = [
     { label: 'Услуги', href: '#services' },
     { label: 'О компании', href: '#about' },
-    { label: 'Процесс', href: '#process' },
+    { label: 'Преимущества', href: '#advantages' },
     { label: 'Кейсы', href: '#cases' },
     { label: 'Контакты', href: '#contacts' },
   ];

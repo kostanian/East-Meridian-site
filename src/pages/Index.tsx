@@ -1,14 +1,21 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail, MessageCircle, Send as SendIcon, ClipboardList, Search, Lightbulb, Rocket, BarChart3, Folder } from 'lucide-react';
+import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail, MessageCircle, Send as SendIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { serviceCategories, additionalServicesNote } from '@/data/services';
 import HeroSection from '@/components/HeroSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
-import HowItWorksSection from '@/components/HowItWorksSection';
 import CTASection from '@/components/CTASection';
 import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
-import { useState } from 'react';
+
+import procurementImg from '@/assets/services/procurement.jpg';
+import financeImg from '@/assets/services/finance.jpg';
+import legalImg from '@/assets/services/legal.jpg';
+import containerImg from '@/assets/services/container.jpg';
+import warehouseImg from '@/assets/services/warehouse.jpg';
+import packagingImg from '@/assets/services/packaging.jpg';
+import transportImg from '@/assets/services/transport.jpg';
+import loadingImg from '@/assets/services/loading.jpg';
+import communicationsImg from '@/assets/services/communications.jpg';
 
 // About data
 const stats = [
