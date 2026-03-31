@@ -76,7 +76,6 @@ const contacts = [
 ];
 
 const Index = () => {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   return (
     <>
