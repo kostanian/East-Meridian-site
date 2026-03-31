@@ -54,7 +54,7 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <Button size="sm" className="rounded-lg font-bold" onClick={() => scrollTo('#contacts')}>
+          <Button size="sm" className="rounded-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollTo('#contacts')}>
             Оставить заявку
           </Button>
         </div>
