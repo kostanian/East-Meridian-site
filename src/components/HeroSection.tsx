@@ -65,8 +65,7 @@ const HeroSection = () => {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-base px-8 py-6 rounded-xl font-bold border-white/30 text-white hover:bg-white/10 hover:text-white"
+              className="text-base px-8 py-6 rounded-xl font-bold bg-white text-foreground hover:bg-white/90 shadow-lg"
               onClick={() => scrollTo('#services')}
             >
               Наши услуги
