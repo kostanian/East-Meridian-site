@@ -99,60 +99,37 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="space-y-4">
-            {serviceCategories.map((category, index) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {serviceCards.map((service, index) => (
               <motion.div
-                key={category.slug}
+                key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.04 }}
+                transition={{ delay: index * 0.06 }}
+                className="group overflow-hidden rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
-                <div
-                  onClick={() => setExpandedCategory(expandedCategory === category.slug ? null : category.slug)}
-                  className="group cursor-pointer bg-card rounded-2xl border border-border p-6 md:p-8 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4 md:gap-6">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <category.icon className="h-6 w-6 md:h-7 md:w-7 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg md:text-xl font-bold text-card-foreground">{category.title}</h3>
-                        <ArrowRight className={`h-5 w-5 text-muted-foreground group-hover:text-primary transition-all ${expandedCategory === category.slug ? 'rotate-90' : ''}`} />
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{category.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Expanded services */}
-                  {expandedCategory === category.slug && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      className="mt-6 pt-6 border-t border-border"
-                    >
-                      <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{category.heroDescription}</p>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {category.services.map((service) => (
-                          <div key={service.title} className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border">
-                            <service.icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                            <div>
-                              <h4 className="text-sm font-bold text-foreground mb-1">{service.title}</h4>
-                              <p className="text-xs text-muted-foreground leading-relaxed">{service.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      {category.slug === 'additional' && (
-                        <p className="text-muted-foreground text-sm mt-4 italic">{additionalServicesNote}</p>
-                      )}
-                    </motion.div>
-                  )}
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-card-foreground mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          <p className="text-center text-muted-foreground mt-10 text-sm italic max-w-2xl mx-auto">
+            Перечень услуг не ограничивается указанными. По запросу клиента мы можем организовать и реализовать индивидуальные проекты и задачи любой сложности в Китае.
+          </p>
         </div>
       </section>
 
