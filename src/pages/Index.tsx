@@ -9,12 +9,9 @@ import LeadForm from '@/components/LeadForm';
 
 import procurementImg from '@/assets/services/procurement.jpg';
 import financeImg from '@/assets/services/finance.jpg';
-import legalImg from '@/assets/services/legal.jpg';
 import containerImg from '@/assets/services/container.jpg';
 import warehouseImg from '@/assets/services/warehouse.jpg';
 import packagingImg from '@/assets/services/packaging.jpg';
-import transportImg from '@/assets/services/transport.jpg';
-import loadingImg from '@/assets/services/loading.jpg';
 import communicationsImg from '@/assets/services/communications.jpg';
 
 // About data
