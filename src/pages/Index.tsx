@@ -189,48 +189,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process */}
-      <section id="process" className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-primary font-bold text-sm uppercase tracking-widest">Процесс</span>
-            <h2 className="text-3xl md:text-5xl font-black mt-3 text-foreground">
-              Как мы <span className="text-gradient">работаем</span>
-            </h2>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto space-y-0">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.12 }}
-                className="relative flex gap-6 pb-12 last:pb-0"
-              >
-                {index < processSteps.length - 1 && (
-                  <div className="absolute left-7 top-16 bottom-0 w-px bg-border" />
-                )}
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 relative z-10">
-                  <step.icon className="h-6 w-6 text-primary" />
-                </div>
-                <div className="pt-1">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider">Этап {step.number}</span>
-                  <h3 className="text-xl font-bold text-foreground mt-1 mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Cases */}
       <section id="cases" className="py-24 bg-card">
         <div className="container mx-auto px-4">
