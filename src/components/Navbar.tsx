@@ -67,7 +67,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-[hsl(220,30%,8%)] border-b border-white/5 px-4 py-6 space-y-2">
+        <div className="lg:hidden bg-[hsl(215,30%,8%)] border-b border-white/5 px-4 py-6 space-y-2">
           {links.map((link) => (
             <button
               key={link.href}
