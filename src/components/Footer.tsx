@@ -71,7 +71,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
-                info@chinatrade.com
+                info@eastmeridian.com
               </li>
             </ul>
           </div>
