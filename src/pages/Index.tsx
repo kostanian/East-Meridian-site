@@ -1,14 +1,21 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail, MessageCircle, Send as SendIcon, ClipboardList, Search, Lightbulb, Rocket, BarChart3, Folder } from 'lucide-react';
+import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail, MessageCircle, Send as SendIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { serviceCategories, additionalServicesNote } from '@/data/services';
 import HeroSection from '@/components/HeroSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
-import HowItWorksSection from '@/components/HowItWorksSection';
 import CTASection from '@/components/CTASection';
 import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
-import { useState } from 'react';
+
+import procurementImg from '@/assets/services/procurement.jpg';
+import financeImg from '@/assets/services/finance.jpg';
+import legalImg from '@/assets/services/legal.jpg';
+import containerImg from '@/assets/services/container.jpg';
+import warehouseImg from '@/assets/services/warehouse.jpg';
+import packagingImg from '@/assets/services/packaging.jpg';
+import transportImg from '@/assets/services/transport.jpg';
+import loadingImg from '@/assets/services/loading.jpg';
+import communicationsImg from '@/assets/services/communications.jpg';
 
 // About data
 const stats = [
@@ -27,13 +34,17 @@ const reasons = [
   { icon: Building2, title: 'Масштабируемость', text: 'Работаем с проектами любого масштаба — от единичных закупок до регулярных поставок.' },
 ];
 
-// Process steps
-const processSteps = [
-  { icon: ClipboardList, number: '01', title: 'Заявка', description: 'Вы оставляете заявку или связываетесь с нами любым удобным способом. Описываете задачу и ожидания.' },
-  { icon: Search, number: '02', title: 'Анализ задачи', description: 'Мы изучаем вашу задачу, оцениваем объём работ, сроки и возможные риски.' },
-  { icon: Lightbulb, number: '03', title: 'Предложение решения', description: 'Формируем коммерческое предложение с чётким планом действий, стоимостью и сроками.' },
-  { icon: Rocket, number: '04', title: 'Реализация', description: 'Выполняем задачу, держим вас в курсе на каждом этапе. Контролируем качество и сроки.' },
-  { icon: BarChart3, number: '05', title: 'Отчётность', description: 'Предоставляем полный отчёт о выполненной работе с документами и рекомендациями.' },
+// Service cards with images
+const serviceCards = [
+  { title: 'Закупки и торговые операции', description: 'Поиск товаров, выкуп, работа с Taobao, 1688, Alibaba и переговоры с фабриками.', image: procurementImg },
+  { title: 'Финансовые операции', description: 'Переводы денег, оплата поставщикам через WeChat Pay, Alipay и банковские счета.', image: financeImg },
+  { title: 'Юридические услуги', description: 'Регистрация торговых марок, проверка контрагентов, аудит фабрик и инспекция товара.', image: legalImg },
+  { title: 'Контейнерные перевозки', description: 'Морские, ж/д и мультимодальные перевозки с расчётом стоимости и сопровождением.', image: containerImg },
+  { title: 'Склад и фулфилмент', description: 'Аренда складского пространства, консолидация грузов, фулфилмент и отправка.', image: warehouseImg },
+  { title: 'Упаковка и маркировка', description: 'Упаковка для логистики и маркетплейсов, маркировка, обрешётка и спецподготовка.', image: packagingImg },
+  { title: 'Транспорт по Китаю', description: 'Внутренние перевозки, доставка от поставщика на склад, оптимизация маршрутов.', image: transportImg },
+  { title: 'Погрузочные работы', description: 'Услуги грузчиков, погрузка контейнеров, спецтехника и вилочные погрузчики.', image: loadingImg },
+  { title: 'Коммуникации и перевод', description: 'Письменный и устный перевод, сопровождение переводчика, участие в переговорах.', image: communicationsImg },
 ];
 
 // Cases
@@ -65,7 +76,6 @@ const contacts = [
 ];
 
 const Index = () => {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   return (
     <>
@@ -89,65 +99,41 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="space-y-4">
-            {serviceCategories.map((category, index) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {serviceCards.map((service, index) => (
               <motion.div
-                key={category.slug}
+                key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.04 }}
+                transition={{ delay: index * 0.06 }}
+                className="group overflow-hidden rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
-                <div
-                  onClick={() => setExpandedCategory(expandedCategory === category.slug ? null : category.slug)}
-                  className="group cursor-pointer bg-card rounded-2xl border border-border p-6 md:p-8 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4 md:gap-6">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <category.icon className="h-6 w-6 md:h-7 md:w-7 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg md:text-xl font-bold text-card-foreground">{category.title}</h3>
-                        <ArrowRight className={`h-5 w-5 text-muted-foreground group-hover:text-primary transition-all ${expandedCategory === category.slug ? 'rotate-90' : ''}`} />
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{category.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Expanded services */}
-                  {expandedCategory === category.slug && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      className="mt-6 pt-6 border-t border-border"
-                    >
-                      <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{category.heroDescription}</p>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {category.services.map((service) => (
-                          <div key={service.title} className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border">
-                            <service.icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                            <div>
-                              <h4 className="text-sm font-bold text-foreground mb-1">{service.title}</h4>
-                              <p className="text-xs text-muted-foreground leading-relaxed">{service.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      {category.slug === 'additional' && (
-                        <p className="text-muted-foreground text-sm mt-4 italic">{additionalServicesNote}</p>
-                      )}
-                    </motion.div>
-                  )}
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-card-foreground mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          <p className="text-center text-muted-foreground mt-10 text-sm italic max-w-2xl mx-auto">
+            Перечень услуг не ограничивается указанными. По запросу клиента мы можем организовать и реализовать индивидуальные проекты и задачи любой сложности в Китае.
+          </p>
         </div>
       </section>
 
       <AdvantagesSection />
-      <HowItWorksSection />
 
       {/* About / Why trust us */}
       <section id="about" className="py-24 bg-card">
@@ -197,48 +183,6 @@ const Index = () => {
                 <r.icon className="h-8 w-8 text-primary mb-4" />
                 <h3 className="text-lg font-bold text-foreground mb-2">{r.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{r.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section id="process" className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-primary font-bold text-sm uppercase tracking-widest">Процесс</span>
-            <h2 className="text-3xl md:text-5xl font-black mt-3 text-foreground">
-              Как мы <span className="text-gradient">работаем</span>
-            </h2>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto space-y-0">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.12 }}
-                className="relative flex gap-6 pb-12 last:pb-0"
-              >
-                {index < processSteps.length - 1 && (
-                  <div className="absolute left-7 top-16 bottom-0 w-px bg-border" />
-                )}
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 relative z-10">
-                  <step.icon className="h-6 w-6 text-primary" />
-                </div>
-                <div className="pt-1">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider">Этап {step.number}</span>
-                  <h3 className="text-xl font-bold text-foreground mt-1 mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
               </motion.div>
             ))}
           </div>

@@ -15,7 +15,7 @@ const Navbar = () => {
   const links = [
     { label: 'Услуги', href: '#services' },
     { label: 'О компании', href: '#about' },
-    { label: 'Процесс', href: '#process' },
+    { label: 'Преимущества', href: '#advantages' },
     { label: 'Кейсы', href: '#cases' },
     { label: 'Контакты', href: '#contacts' },
   ];
@@ -54,7 +54,7 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <Button size="sm" className="rounded-lg font-bold" onClick={() => scrollTo('#contacts')}>
+          <Button size="sm" className="rounded-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollTo('#contacts')}>
             Оставить заявку
           </Button>
         </div>
