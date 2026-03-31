@@ -72,7 +72,7 @@ const casePlaceholders = [
 const contacts = [
   { icon: MapPin, label: 'Офис', value: 'Гуанчжоу, Китай' },
   { icon: Phone, label: 'Телефон', value: '+86 XXX XXXX XXXX' },
-  { icon: Mail, label: 'Email', value: 'info@chinatrade.com' },
+  { icon: Mail, label: 'Email', value: 'info@eastmeridian.com' },
 ];
 
 const Index = () => {
