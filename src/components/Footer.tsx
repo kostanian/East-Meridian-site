@@ -51,7 +51,7 @@ const Footer = () => {
             <h4 className="font-bold text-white mb-4">Компания</h4>
             <ul className="space-y-2 text-sm">
               <li><button onClick={() => scrollTo('#about')} className="hover:text-white transition-colors">О компании</button></li>
-              <li><button onClick={() => scrollTo('#process')} className="hover:text-white transition-colors">Как мы работаем</button></li>
+              <li><button onClick={() => scrollTo('#advantages')} className="hover:text-white transition-colors">Преимущества</button></li>
               <li><button onClick={() => scrollTo('#cases')} className="hover:text-white transition-colors">Кейсы</button></li>
               <li><button onClick={() => scrollTo('#contacts')} className="hover:text-white transition-colors">Контакты</button></li>
             </ul>
