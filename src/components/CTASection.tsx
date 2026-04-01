@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import TelegramIcon from '@/components/icons/TelegramIcon';
+import WeChatIcon from '@/components/icons/WeChatIcon';
 import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
