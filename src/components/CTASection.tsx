@@ -39,7 +39,7 @@ const CTASection = () => {
             </Button>
             <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg" asChild>
               <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer">
-                <Send className="mr-2 h-5 w-5" />
+                <TelegramIcon className="mr-2 h-5 w-5" />
                 Telegram
               </a>
             </Button>
