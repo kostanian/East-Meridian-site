@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Clock, Shield, Users, TrendingDown } from 'lucide-react';
+import { Clock, Shield, Users, BadgePercent } from 'lucide-react';
 
 const advantages = [
   {
@@ -8,7 +8,7 @@ const advantages = [
     description: 'Оптимальные маршруты и проверенные логистические цепочки. Доставка от 12 дней.',
   },
   {
-    icon: TrendingDown,
+    icon: BadgePercent,
     title: 'Выгодные цены',
     description: 'Консолидация грузов и прямые контракты с перевозчиками — экономия до 40%.',
   },
