@@ -15,12 +15,6 @@ import packagingImg from '@/assets/services/packaging.jpg';
 import communicationsImg from '@/assets/services/communications.jpg';
 
 // About data
-const stats = [
-  { value: '8+', label: 'Лет на рынке' },
-  { value: '5000+', label: 'Успешных отправок' },
-  { value: '500+', label: 'Постоянных клиентов' },
-  { value: '3', label: 'Офиса в Китае' },
-];
 
 const reasons = [
   { icon: MapPin, title: 'Присутствие в Китае', text: 'Собственные офисы и склады в ключевых городах Китая. Мы решаем задачи на месте.' },
@@ -147,22 +141,6 @@ const Index = () => {
             </p>
           </motion.div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl font-black text-primary">{s.value}</div>
-                <div className="text-sm text-muted-foreground mt-1">{s.label}</div>
-              </motion.div>
-            ))}
-          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reasons.map((r, i) => (
