@@ -15,12 +15,6 @@ import packagingImg from '@/assets/services/packaging.jpg';
 import communicationsImg from '@/assets/services/communications.jpg';
 
 // About data
-const stats = [
-  { value: '8+', label: 'Лет на рынке' },
-  { value: '5000+', label: 'Успешных отправок' },
-  { value: '500+', label: 'Постоянных клиентов' },
-  { value: '3', label: 'Офиса в Китае' },
-];
 
 const reasons = [
   { icon: MapPin, title: 'Присутствие в Китае', text: 'Собственные офисы и склады в ключевых городах Китая. Мы решаем задачи на месте.' },
