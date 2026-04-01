@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import TelegramIcon from '@/components/icons/TelegramIcon';
 import WeChatIcon from '@/components/icons/WeChatIcon';
 import { serviceCategories } from '@/data/services';
