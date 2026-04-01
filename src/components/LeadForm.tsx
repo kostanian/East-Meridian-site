@@ -45,7 +45,7 @@ const LeadForm = ({ title = 'Оставить заявку', subtitle = 'Опи�
       <form onSubmit={handleSubmit} className={`grid gap-4 ${compact ? '' : 'max-w-xl mx-auto'}`}>
         <div className="grid sm:grid-cols-2 gap-4">
           <Input placeholder="Ваше имя" required className="bg-background border-border" />
-          <Input placeholder="Телефон" type="tel" required className="bg-background border-border" />
+          <Input placeholder="Ваш Telegram (@username)" required className="bg-background border-border" />
         </div>
         <Input placeholder="Email" type="email" className="bg-background border-border" />
         {!compact && (
