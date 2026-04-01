@@ -124,6 +124,46 @@ const Index = () => {
 
       <AdvantagesSection />
 
+      {/* Process */}
+      <section id="process" className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary font-bold text-sm uppercase tracking-widest">Процесс</span>
+            <h2 className="text-3xl md:text-5xl font-black mt-3 text-foreground">
+              Как мы <span className="text-gradient">работаем</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            {[
+              { step: '01', title: 'Заявка', text: 'Вы оставляете заявку или связываетесь с нами любым удобным способом. Описываете задачу и ожидания.' },
+              { step: '02', title: 'Анализ задачи', text: 'Мы изучаем вашу задачу, оцениваем объём работ, сроки и возможные риски.' },
+              { step: '03', title: 'Предложение решения', text: 'Формируем коммерческое предложение с чётким планом действий, стоимостью и сроками.' },
+              { step: '04', title: 'Реализация', text: 'Выполняем задачу, держим вас в курсе на каждом этапе. Контролируем качество и сроки.' },
+              { step: '05', title: 'Отчётность', text: 'Предоставляем полный отчёт о выполненной работе с документами и рекомендациями.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card rounded-2xl border border-border p-6 text-center"
+              >
+                <span className="text-primary font-black text-sm uppercase tracking-widest">Этап {item.step}</span>
+                <h3 className="text-lg font-bold text-foreground mt-3 mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About / Why trust us */}
       <section id="about" className="py-24 bg-card">
         <div className="container mx-auto px-4">
