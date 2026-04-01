@@ -341,7 +341,7 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
             {/* Contact info */}
             <div>
               <div className="space-y-6 mb-10">
