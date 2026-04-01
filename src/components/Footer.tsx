@@ -73,7 +73,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Send className="h-4 w-4 text-primary shrink-0" />
-                <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: +86 132 2205 0 892</a>
+                <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @east_meridian</a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 text-primary shrink-0" />
