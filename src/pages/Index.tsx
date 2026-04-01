@@ -8,12 +8,12 @@ import CTASection from '@/components/CTASection';
 import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
 
-import procurementImg from '@/assets/services/procurement.jpg';
-import financeImg from '@/assets/services/finance.jpg';
-import containerImg from '@/assets/services/container.jpg';
-import warehouseImg from '@/assets/services/warehouse.jpg';
-import packagingImg from '@/assets/services/packaging.jpg';
-import communicationsImg from '@/assets/services/communications.jpg';
+import logisticsImg from '@/assets/services/logistics.jpg';
+import warehouseServicesImg from '@/assets/services/warehouse-services.jpg';
+import financialImg from '@/assets/services/financial.jpg';
+import dealSupportImg from '@/assets/services/deal-support.jpg';
+import legalImg from '@/assets/services/legal.jpg';
+import interpreterImg from '@/assets/services/interpreter.jpg';
 
 // About data
 
@@ -28,12 +28,62 @@ const reasons = [
 
 // Service cards with images
 const serviceCards = [
-  { title: 'Закупки в Китае', description: 'Поиск товаров и поставщиков, выкуп с площадок, работа с Taobao, 1688, Alibaba и переговоры с фабриками.', image: procurementImg },
-  { title: 'Переводы и сопровождение', description: 'Устный и письменный перевод, сопровождение на фабриках, выставках и деловых встречах.', image: communicationsImg },
-  { title: 'Финансы и юридические услуги', description: 'Оплата поставщикам, переводы через WeChat Pay и Alipay, регистрация торговых марок, проверка контрагентов и аудит фабрик.', image: financeImg },
-  { title: 'Логистика и перевозки', description: 'Морские, ж/д и мультимодальные перевозки, внутренняя доставка по Китаю, оптимизация маршрутов и сопровождение грузов.', image: containerImg },
-  { title: 'Склад, упаковка и погрузка', description: 'Аренда складов, консолидация, упаковка для логистики и маркетплейсов, маркировка, погрузка и спецтехника.', image: warehouseImg },
-  { title: 'Дополнительные услуги', description: 'Сопровождение на выставках, private label, представительство в Китае и решение нестандартных задач.', image: packagingImg },
+  {
+    title: 'Логистика',
+    bullets: [
+      'Авиа, авто, Ж/Д и морская доставка под ключ',
+      'Контейнерные Ж/Д и морские перевозки',
+      'Локальная доставка по Китаю курьерскими службами или независимыми транспортными маршрутами',
+      'Международная отправка курьерскими службами (DHL, UPS, FedEx и др.)',
+    ],
+    image: logisticsImg,
+  },
+  {
+    title: 'Складские услуги',
+    bullets: [
+      'Приём и обработка грузов на складах в Гуанчжоу и Иу',
+      'Упаковка и маркировка для маркетплейсов: Amazon, Wildberries, Ozon и других',
+      'Приём и проверка грузов',
+      'Временное хранение грузов и сдача в субаренду складских площадей',
+    ],
+    image: warehouseServicesImg,
+  },
+  {
+    title: 'Финансовые операции',
+    bullets: [
+      'Переводы денег в Китай, оплата поставщикам',
+      'Выкуп товаров с торговых площадок 1688, Taobao, Pinduoduo, JD.com и др.',
+      'Денежные переводы юаней в Китай и из Китая',
+    ],
+    image: financialImg,
+  },
+  {
+    title: 'Сопровождение сделок',
+    bullets: [
+      'Поиск надёжных производителей по всему Китаю',
+      'Инспекция товара и контроль качества перед отправкой',
+      'Поиск производителей и проверка поставщика',
+    ],
+    image: dealSupportImg,
+  },
+  {
+    title: 'Юридическая поддержка',
+    bullets: [
+      'Регистрация торговой марки в Китае и Гонконге',
+      'Регистрация компании в Китае и Гонконге',
+      'Сопровождение в оформлении миграционных документов для получения ВНЖ, визы и т.д.',
+    ],
+    image: legalImg,
+  },
+  {
+    title: 'Услуги переводчика',
+    bullets: [
+      'Письменный и устный перевод',
+      'Сопровождение переводчика на переговорах, выставках и производстве в Китае',
+      'Участие в переговорах',
+    ],
+    image: interpreterImg,
+  },
 ];
 
 // Cases
@@ -109,8 +159,15 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-card-foreground mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg font-bold text-card-foreground mb-3">{service.title}</h3>
+                  <ul className="space-y-2">
+                    {service.bullets.map((bullet, bi) => (
+                      <li key={bi} className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
