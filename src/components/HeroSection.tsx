@@ -72,24 +72,6 @@ const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-3 gap-8 mt-16 max-w-lg"
-          >
-            {[
-              { value: '8+', label: 'Лет опыта' },
-              { value: '5000+', label: 'Доставок' },
-              { value: '99%', label: 'Довольных клиентов' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl md:text-4xl font-black text-white drop-shadow-md">{stat.value}</div>
-                <div className="text-sm text-white/60 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
