@@ -8,12 +8,12 @@ import CTASection from '@/components/CTASection';
 import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
 
-import procurementImg from '@/assets/services/procurement.jpg';
-import financeImg from '@/assets/services/finance.jpg';
-import containerImg from '@/assets/services/container.jpg';
-import warehouseImg from '@/assets/services/warehouse.jpg';
-import packagingImg from '@/assets/services/packaging.jpg';
-import communicationsImg from '@/assets/services/communications.jpg';
+import logisticsImg from '@/assets/services/logistics.jpg';
+import warehouseServicesImg from '@/assets/services/warehouse-services.jpg';
+import financialImg from '@/assets/services/financial.jpg';
+import dealSupportImg from '@/assets/services/deal-support.jpg';
+import legalImg from '@/assets/services/legal.jpg';
+import interpreterImg from '@/assets/services/interpreter.jpg';
 
 // About data
 
