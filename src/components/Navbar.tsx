@@ -17,6 +17,7 @@ const Navbar = () => {
     { label: 'О компании', href: '#about' },
     { label: 'Преимущества', href: '#advantages' },
     { label: 'Кейсы', href: '#cases' },
+    { label: 'Блог', href: '#blog' },
     { label: 'Контакты', href: '#contacts' },
   ];
 
