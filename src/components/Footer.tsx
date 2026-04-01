@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, MessageCircle, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import { serviceCategories } from '@/data/services';
 
 const Footer = () => {
@@ -23,13 +23,11 @@ const Footer = () => {
               Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
             </p>
             <div className="flex gap-3">
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                <MessageCircle className="h-4 w-4" />
-              </a>
-              <a href="https://t.me/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
                 <Send className="h-4 w-4" />
               </a>
             </div>
+            <p className="text-sm mt-3">WeChat: east_meridian</p>
           </div>
 
           {/* Services */}
@@ -67,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary shrink-0" />
-                +86 XXX XXXX XXXX
+                +86 132 2205 0 892
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
