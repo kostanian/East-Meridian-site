@@ -112,7 +112,7 @@ const casePlaceholders = [
 
 const contacts = [
   { icon: MapPin, label: 'Мы находимся в', value: 'Гуанчжоу, Китай' },
-  { icon: Phone, label: 'Телефон', value: '+86 XXX XXXX XXXX' },
+  { icon: Phone, label: 'Телефон', value: '+86 132 2205 0 892' },
   { icon: Mail, label: 'Email', value: 'info@eastmeridian.com' },
 ];
 
