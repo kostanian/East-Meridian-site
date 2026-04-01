@@ -159,8 +159,15 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-card-foreground mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg font-bold text-card-foreground mb-3">{service.title}</h3>
+                  <ul className="space-y-2">
+                    {service.bullets.map((bullet, bi) => (
+                      <li key={bi} className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
