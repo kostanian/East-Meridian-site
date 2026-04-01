@@ -29,7 +29,7 @@ const Footer = () => {
                 <TelegramIcon className="h-4 w-4" />
               </a>
             </div>
-            <p className="text-sm mt-3">WeChat: east_meridian</p>
+            
           </div>
 
           {/* Services */}
