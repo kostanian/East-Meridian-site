@@ -347,8 +347,8 @@ const Index = () => {
               <div className="space-y-6 mb-10">
                 {contacts.map((c) => (
                   <div key={c.label} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <c.icon className="h-5 w-5 text-primary" />
+                    <div className={`w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center shrink-0`}>
+                      <c.icon className={`h-5 w-5 ${c.color}`} />
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">{c.label}</div>
