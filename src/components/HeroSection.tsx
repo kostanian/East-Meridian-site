@@ -45,7 +45,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-white/85 mb-10 max-w-xl leading-relaxed drop-shadow-md"
           >
-            Закупки, логистика, финансы и многое другое — для юридических и физических лиц из России и Казахстана.
+            Полный спектр услуг в Китае для бизнеса и физических лиц из России и Казахстана.
           </motion.p>
 
           <motion.div
