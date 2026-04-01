@@ -139,7 +139,10 @@ const Index = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          <div className="relative max-w-4xl mx-auto space-y-0">
+            {/* Vertical line connector */}
+            <div className="absolute left-6 md:left-8 top-8 bottom-8 w-px bg-border hidden md:block" />
+
             {[
               { step: '01', title: 'Заявка', text: 'Вы оставляете заявку или связываетесь с нами любым удобным способом. Описываете задачу и ожидания.' },
               { step: '02', title: 'Анализ задачи', text: 'Мы изучаем вашу задачу, оцениваем объём работ, сроки и возможные риски.' },
@@ -149,15 +152,22 @@ const Index = () => {
             ].map((item, i) => (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-2xl border border-border p-6 text-center"
+                transition={{ delay: i * 0.12 }}
+                className="relative flex items-start gap-6 md:gap-8 py-6"
               >
-                <span className="text-primary font-black text-sm uppercase tracking-widest">Этап {item.step}</span>
-                <h3 className="text-lg font-bold text-foreground mt-3 mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
+                {/* Step number circle */}
+                <div className="relative z-10 shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center">
+                  <span className="text-primary font-black text-sm md:text-lg">{item.step}</span>
+                </div>
+
+                {/* Content */}
+                <div className="pt-1 md:pt-3">
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xl">{item.text}</p>
+                </div>
               </motion.div>
             ))}
           </div>
