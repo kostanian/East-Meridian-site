@@ -24,11 +24,6 @@ const Footer = () => {
             <p className="text-sm leading-relaxed mb-4">
               Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
             </p>
-            <div className="flex gap-3">
-              <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                <TelegramIcon className="h-4 w-4" />
-              </a>
-            </div>
             
           </div>
 
