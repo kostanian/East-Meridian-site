@@ -74,11 +74,11 @@ const Footer = () => {
                 info@eastmeridian.com
               </li>
               <li className="flex items-center gap-2">
-                <TelegramIcon className="h-4 w-4 text-primary shrink-0" />
+                <TelegramIcon className="h-4 w-4 text-[#26A5E4] shrink-0" />
                 <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @east_meridian</a>
               </li>
               <li className="flex items-center gap-2">
-                <WeChatIcon className="h-4 w-4 text-primary shrink-0" />
+                <WeChatIcon className="h-4 w-4 text-[#07C160] shrink-0" />
                 WeChat: east_meridian
               </li>
             </ul>
