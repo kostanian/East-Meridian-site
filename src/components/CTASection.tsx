@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle, Send } from 'lucide-react';
+import { ArrowRight, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
