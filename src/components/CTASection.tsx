@@ -35,7 +35,7 @@ const CTASection = () => {
               WeChat: east_meridian
             </Button>
             <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg" asChild>
-              <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+              <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer">
                 <Send className="mr-2 h-5 w-5" />
                 Telegram
               </a>
