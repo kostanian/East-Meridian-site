@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
-import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail, Send as SendIcon, MessageCircle as MessageCircleIcon } from 'lucide-react';
+import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail } from 'lucide-react';
+import TelegramIcon from '@/components/icons/TelegramIcon';
+import WeChatIcon from '@/components/icons/WeChatIcon';
 import wechatQr from '@/assets/wechat-qr.jpg';
 import { Button } from '@/components/ui/button';
 import HeroSection from '@/components/HeroSection';
