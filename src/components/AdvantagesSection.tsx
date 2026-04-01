@@ -53,8 +53,7 @@ const AdvantagesSection = () => {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                 <adv.icon className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{adv.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{adv.description}</p>
+              <h3 className="text-lg font-bold text-foreground">{adv.title}</h3>
             </motion.div>
           ))}
         </div>
