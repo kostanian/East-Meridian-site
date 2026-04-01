@@ -23,7 +23,7 @@ const Footer = () => {
               Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
             </p>
             <div className="flex gap-3">
-              <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
                 <Send className="h-4 w-4" />
               </a>
             </div>
@@ -73,7 +73,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Send className="h-4 w-4 text-primary shrink-0" />
-                <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: +86 132 2205 0 892</a>
+                <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @east_meridian</a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 text-primary shrink-0" />
