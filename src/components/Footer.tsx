@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, MessageCircle } from 'lucide-react';
 import { serviceCategories } from '@/data/services';
 
 const Footer = () => {
@@ -70,6 +70,14 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
                 info@eastmeridian.com
+              </li>
+              <li className="flex items-center gap-2">
+                <Send className="h-4 w-4 text-primary shrink-0" />
+                <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: +86 132 2205 0 892</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MessageCircle className="h-4 w-4 text-primary shrink-0" />
+                WeChat: east_meridian
               </li>
             </ul>
           </div>
