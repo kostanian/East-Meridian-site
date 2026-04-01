@@ -350,24 +350,18 @@ const Index = () => {
                     </div>
                     <div>
                       <div className="text-sm text-muted-foreground">{c.label}</div>
-                      <div className="font-semibold text-foreground">{c.value}</div>
+                      {'link' in c && c.link ? (
+                        <a href={c.link} target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-primary transition-colors">
+                          {c.value}
+                        </a>
+                      ) : (
+                        <div className="font-semibold text-foreground">{c.value}</div>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <h3 className="text-lg font-bold text-foreground mb-4">Мессенджеры</h3>
-              <div className="flex flex-wrap gap-3">
-                <Button className="rounded-xl bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white font-bold" asChild>
-                  <a href="https://t.me/+861322205892" target="_blank" rel="noopener noreferrer">
-                    <SendIcon className="mr-2 h-4 w-4" />
-                    Telegram
-                  </a>
-                </Button>
-                <Button className="rounded-xl bg-[hsl(120,40%,45%)] hover:bg-[hsl(120,40%,38%)] text-white font-bold">
-                  WeChat: east_meridian
-                </Button>
-              </div>
               <div className="mt-6">
                 <p className="text-sm text-muted-foreground mb-2">WeChat QR-код</p>
                 <img src={wechatQr} alt="WeChat QR код East Meridian" className="w-40 h-40 rounded-xl border border-border" />
