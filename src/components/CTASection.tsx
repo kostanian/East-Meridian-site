@@ -31,11 +31,8 @@ const CTASection = () => {
               Оставить заявку
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" className="bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg" asChild>
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                WhatsApp
-              </a>
+            <Button size="lg" className="bg-[hsl(120,40%,45%)] hover:bg-[hsl(120,40%,38%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg">
+              WeChat: east_meridian
             </Button>
             <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg" asChild>
               <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
