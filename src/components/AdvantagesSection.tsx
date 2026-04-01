@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Clock, Shield, Users, TrendingDown } from 'lucide-react';
+import { Clock, Shield, Users, BadgePercent } from 'lucide-react';
 
 const advantages = [
   {
