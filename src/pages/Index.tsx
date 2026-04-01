@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
-import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail, Send as SendIcon, MessageCircle as MessageCircleIcon } from 'lucide-react';
+import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail } from 'lucide-react';
+import TelegramIcon from '@/components/icons/TelegramIcon';
+import WeChatIcon from '@/components/icons/WeChatIcon';
 import wechatQr from '@/assets/wechat-qr.jpg';
 import { Button } from '@/components/ui/button';
 import HeroSection from '@/components/HeroSection';
@@ -114,8 +116,8 @@ const contacts = [
   { icon: MapPin, label: 'Мы находимся в', value: 'Гуанчжоу, Китай' },
   { icon: Phone, label: 'Телефон', value: '+86 132 2205 0 892' },
   { icon: Mail, label: 'Email', value: 'info@eastmeridian.com' },
-  { icon: SendIcon, label: 'Telegram', value: '@east_meridian', link: 'https://t.me/east_meridian' },
-  { icon: MessageCircleIcon, label: 'WeChat', value: 'east_meridian' },
+  { icon: TelegramIcon, label: 'Telegram', value: '@east_meridian', link: 'https://t.me/east_meridian' },
+  { icon: WeChatIcon, label: 'WeChat', value: 'east_meridian' },
 ];
 
 const Index = () => {

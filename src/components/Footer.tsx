@@ -1,4 +1,6 @@
-import { MapPin, Phone, Mail, Send, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
+import TelegramIcon from '@/components/icons/TelegramIcon';
+import WeChatIcon from '@/components/icons/WeChatIcon';
 import { serviceCategories } from '@/data/services';
 
 const Footer = () => {
@@ -24,7 +26,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Send className="h-4 w-4" />
+                <TelegramIcon className="h-4 w-4" />
               </a>
             </div>
             <p className="text-sm mt-3">WeChat: east_meridian</p>
@@ -72,11 +74,11 @@ const Footer = () => {
                 info@eastmeridian.com
               </li>
               <li className="flex items-center gap-2">
-                <Send className="h-4 w-4 text-primary shrink-0" />
+                <TelegramIcon className="h-4 w-4 text-primary shrink-0" />
                 <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @east_meridian</a>
               </li>
               <li className="flex items-center gap-2">
-                <MessageCircle className="h-4 w-4 text-primary shrink-0" />
+                <WeChatIcon className="h-4 w-4 text-primary shrink-0" />
                 WeChat: east_meridian
               </li>
             </ul>

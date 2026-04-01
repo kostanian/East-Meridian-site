@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import TelegramIcon from '@/components/icons/TelegramIcon';
+import WeChatIcon from '@/components/icons/WeChatIcon';
 import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
@@ -32,11 +34,12 @@ const CTASection = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" className="bg-[hsl(120,40%,45%)] hover:bg-[hsl(120,40%,38%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg">
+              <WeChatIcon className="mr-2 h-5 w-5" />
               WeChat: east_meridian
             </Button>
             <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg" asChild>
               <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer">
-                <Send className="mr-2 h-5 w-5" />
+                <TelegramIcon className="mr-2 h-5 w-5" />
                 Telegram
               </a>
             </Button>
