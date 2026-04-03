@@ -19,8 +19,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { name, telegram, email, message } = req.body ?? {};
 
-  if (!name || !telegram) {
-    return res.status(400).json({ error: 'Поля "Имя" и "Telegram" обязательны' });
+  if (!name || !message) {
+    return res.status(400).json({ error: 'Поля "Имя" и "Сообщение" обязательны' });
+  }
+
+  if (!telegram && !email) {
+    return res.status(400).json({ error: 'Укажите хотя бы один способ связи: Telegram или Email' });
   }
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -35,9 +39,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     '📩 Новая заявка с сайта',
     '',
     `👤 Имя: ${name}`,
-    `✈️ Telegram: ${telegram}`,
+    telegram ? `✈️ Telegram: ${telegram}` : '',
     email ? `📧 Email: ${email}` : '',
-    message ? `\n💬 Сообщение:\n${message}` : '',
+    `\n💬 Сообщение:\n${message}`,
   ].filter(Boolean);
 
   const text = lines.join('\n');

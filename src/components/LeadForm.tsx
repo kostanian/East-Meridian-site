@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@/components/ui/dialog';
 
 interface LeadFormProps {
   title?: string;
@@ -11,22 +19,23 @@ interface LeadFormProps {
   compact?: boolean;
 }
 
+interface FormData {
+  name: string;
+  telegram: string;
+  email: string;
+  message: string;
+}
+
 const LeadForm = ({ title = 'Оставить заявку', subtitle = 'Опишите вашу задачу — мы свяжемся в течение 2 часов', compact = false }: LeadFormProps) => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [missingField, setMissingField] = useState<'telegram' | 'email' | null>(null);
+  const [pendingData, setPendingData] = useState<FormData | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const sendData = async (data: FormData) => {
     setStatus('sending');
     setErrorMsg('');
-
-    const form = e.currentTarget;
-    const data = {
-      name: (form.elements.namedItem('name') as HTMLInputElement).value,
-      telegram: (form.elements.namedItem('telegram') as HTMLInputElement).value,
-      email: (form.elements.namedItem('email') as HTMLInputElement).value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement)?.value ?? '',
-    };
 
     try {
       const res = await fetch('/api/send-lead', {
@@ -41,11 +50,57 @@ const LeadForm = ({ title = 'Оставить заявку', subtitle = 'Опи�
       }
 
       setStatus('success');
-      form.reset();
+      formRef.current?.reset();
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : 'Ошибка при отправке');
       setStatus('error');
     }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrorMsg('');
+
+    const form = e.currentTarget;
+    const data: FormData = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value.trim(),
+      telegram: (form.elements.namedItem('telegram') as HTMLInputElement).value.trim(),
+      email: (form.elements.namedItem('email') as HTMLInputElement).value.trim(),
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement)?.value.trim() ?? '',
+    };
+
+    if (!data.telegram && !data.email) {
+      setErrorMsg('Укажите хотя бы один способ связи: Telegram или Email');
+      setStatus('error');
+      return;
+    }
+
+    if (!data.telegram) {
+      setPendingData(data);
+      setMissingField('telegram');
+      return;
+    }
+
+    if (!data.email) {
+      setPendingData(data);
+      setMissingField('email');
+      return;
+    }
+
+    sendData(data);
+  };
+
+  const handleSendWithout = () => {
+    if (pendingData) {
+      setMissingField(null);
+      sendData(pendingData);
+      setPendingData(null);
+    }
+  };
+
+  const handleDialogClose = () => {
+    setMissingField(null);
+    setPendingData(null);
   };
 
   if (status === 'success') {
@@ -62,6 +117,8 @@ const LeadForm = ({ title = 'Оставить заявку', subtitle = 'Опи�
     );
   }
 
+  const missingLabel = missingField === 'telegram' ? 'Telegram' : 'Email';
+
   return (
     <div>
       {!compact && (
@@ -70,14 +127,14 @@ const LeadForm = ({ title = 'Оставить заявку', subtitle = 'Опи�
           {subtitle && <p className="text-muted-foreground mt-2">{subtitle}</p>}
         </div>
       )}
-      <form onSubmit={handleSubmit} className={`grid gap-4 ${compact ? '' : 'max-w-xl mx-auto'}`}>
+      <form ref={formRef} onSubmit={handleSubmit} className={`grid gap-4 ${compact ? '' : 'max-w-xl mx-auto'}`}>
         <div className="grid sm:grid-cols-2 gap-4">
           <Input name="name" placeholder="Ваше имя" required className="bg-background border-border" />
-          <Input name="telegram" placeholder="Ваш Telegram (@username)" required className="bg-background border-border" />
+          <Input name="telegram" placeholder="Ваш Telegram (@username)" className="bg-background border-border" />
         </div>
         <Input name="email" placeholder="Email" type="email" className="bg-background border-border" />
         {!compact && (
-          <Textarea name="message" placeholder="Опишите вашу задачу..." rows={4} className="bg-background border-border" />
+          <Textarea name="message" placeholder="Опишите вашу задачу..." rows={4} required className="bg-background border-border" />
         )}
 
         {status === 'error' && (
@@ -92,6 +149,25 @@ const LeadForm = ({ title = 'Оставить заявку', subtitle = 'Опи�
           {status === 'sending' ? 'Отправка...' : 'Отправить заявку'}
         </Button>
       </form>
+
+      <Dialog open={missingField !== null} onOpenChange={(open) => { if (!open) handleDialogClose(); }}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Не указан {missingLabel}</DialogTitle>
+            <DialogDescription>
+              Вы не заполнили поле «{missingLabel}». Заполните его, чтобы мы могли связаться с вами удобным способом, или отправьте заявку без него.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2">
+            <Button variant="outline" onClick={handleDialogClose}>
+              Вернуться и заполнить
+            </Button>
+            <Button onClick={handleSendWithout}>
+              Отправить без {missingLabel}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
