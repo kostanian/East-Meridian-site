@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-logistics.jpg';
+import heroImage from '@/assets/hero-logistics.webp';
 
 const HeroSection = () => {
   const scrollTo = (id: string) => {
@@ -13,7 +13,7 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroImage} alt="Контейнерный порт в Китае" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,40%,4%)]/95 via-[hsl(220,40%,4%)]/85 to-[hsl(220,40%,4%)]/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,40%,4%)]/75 via-[hsl(220,40%,4%)]/55 to-[hsl(220,40%,4%)]/30" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

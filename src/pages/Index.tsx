@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Building2, Globe, Users, ShieldCheck, Award, MapPin, Phone, Mail } from 'lucide-react';
 import TelegramIcon from '@/components/icons/TelegramIcon';
 import WeChatIcon from '@/components/icons/WeChatIcon';
-import wechatQr from '@/assets/wechat-qr.jpg';
+import wechatQr from '@/assets/wechat-qr.webp';
 import { Button } from '@/components/ui/button';
 import HeroSection from '@/components/HeroSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
@@ -11,12 +11,12 @@ import CTASection from '@/components/CTASection';
 import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
 
-import logisticsImg from '@/assets/services/logistics.jpg';
-import warehouseServicesImg from '@/assets/services/warehouse-services.jpg';
-import financialImg from '@/assets/services/financial.jpg';
-import dealSupportImg from '@/assets/services/deal-support.jpg';
-import legalImg from '@/assets/services/legal.jpg';
-import interpreterImg from '@/assets/services/interpreter.jpg';
+import logisticsImg from '@/assets/services/logistics.webp';
+import warehouseServicesImg from '@/assets/services/warehouse-services.webp';
+import financialImg from '@/assets/services/financial.webp';
+import dealSupportImg from '@/assets/services/deal-support.webp';
+import legalImg from '@/assets/services/legal.webp';
+import interpreterImg from '@/assets/services/interpreter.webp';
 
 // About data
 
@@ -154,21 +154,21 @@ const Index = () => {
                 transition={{ delay: index * 0.06 }}
                 className="group overflow-hidden rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
-                <div className="aspect-square overflow-hidden">
+                <div className="aspect-[3/2] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
                     loading="lazy"
-                    width={800}
-                    height={800}
+                    width={600}
+                    height={400}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-card-foreground mb-3">{service.title}</h3>
-                  <ul className="space-y-2">
+                  <h3 className="text-xl font-black text-card-foreground mb-4">{service.title}</h3>
+                  <ul className="space-y-2.5">
                     {service.bullets.map((bullet, bi) => (
-                      <li key={bi} className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed">
+                      <li key={bi} className="flex items-start gap-2.5 text-muted-foreground text-sm leading-relaxed">
                         <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                         {bullet}
                       </li>
