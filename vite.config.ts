@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin, type ViteDevServer } from "vite";
+import type { IncomingMessage, ServerResponse } from "http";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
@@ -15,10 +16,10 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    mode === "development" && {
+    mode === "development" && ({
       name: 'api-dev-server',
-      configureServer(server) {
-        server.middlewares.use(async (req, res, next) => {
+      configureServer(server: ViteDevServer) {
+        server.middlewares.use(async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
           if (req.url?.startsWith('/api/')) {
             try {
               const { handleApiRequest } = await server.ssrLoadModule(
@@ -33,7 +34,7 @@ export default defineConfig(({ mode }) => ({
           next();
         });
       },
-    },
+    } satisfies Plugin),
   ].filter(Boolean),
   resolve: {
     alias: {
