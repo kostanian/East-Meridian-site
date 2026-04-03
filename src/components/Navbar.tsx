@@ -17,7 +17,7 @@ const Navbar = () => {
     { label: 'О компании', href: '#about' },
     { label: 'Преимущества', href: '#advantages' },
     { label: 'Кейсы', href: '#cases' },
-    { label: 'Блог', href: '#blog' },
+    { label: 'Блог', href: 'https://blog.east-meridian.com', external: true },
     { label: 'Контакты', href: '#contacts' },
   ];
 
@@ -47,13 +47,25 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-6">
           {links.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => scrollTo(link.href)}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
-            >
-              {link.label}
-            </button>
+            'external' in link && link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <button
+                key={link.href}
+                onClick={() => scrollTo(link.href)}
+                className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+              >
+                {link.label}
+              </button>
+            )
           ))}
           <Button size="sm" className="rounded-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollTo('#contacts')}>
             Оставить заявку
@@ -70,13 +82,26 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-[hsl(215,30%,8%)] border-b border-white/5 px-4 py-6 space-y-2">
           {links.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => scrollTo(link.href)}
-              className="block w-full text-left py-2 text-white/80 hover:text-white font-medium"
-            >
-              {link.label}
-            </button>
+            'external' in link && link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-left py-2 text-white/80 hover:text-white font-medium"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <button
+                key={link.href}
+                onClick={() => scrollTo(link.href)}
+                className="block w-full text-left py-2 text-white/80 hover:text-white font-medium"
+              >
+                {link.label}
+              </button>
+            )
           ))}
           <Button size="sm" className="w-full rounded-lg font-bold mt-4" onClick={() => scrollTo('#contacts')}>
             Оставить заявку
