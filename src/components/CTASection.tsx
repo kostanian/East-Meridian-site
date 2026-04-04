@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { toast } from 'sonner';
 import TelegramIcon from '@/components/icons/TelegramIcon';
 import WeChatIcon from '@/components/icons/WeChatIcon';
 import { Button } from '@/components/ui/button';
@@ -33,7 +34,14 @@ const CTASection = () => {
               Оставить заявку
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" className="bg-[hsl(120,40%,45%)] hover:bg-[hsl(120,40%,38%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg">
+            <Button
+              size="lg"
+              className="bg-[hsl(120,40%,45%)] hover:bg-[hsl(120,40%,38%)] text-white text-base px-8 py-6 rounded-xl font-bold shadow-lg"
+              onClick={() => {
+                navigator.clipboard.writeText('east_meridian');
+                toast('WeChat ID скопирован', { description: 'east_meridian' });
+              }}
+            >
               <WeChatIcon className="mr-2 h-5 w-5" />
               WeChat: east_meridian
             </Button>

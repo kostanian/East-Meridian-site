@@ -19,8 +19,30 @@ interface FilePayload {
   data: string;
 }
 
-function setCors(res: VercelResponse) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+// Rate limiting: max 5 requests per IP per 60 seconds
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW = 60_000;
+const rateLimitMap = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (rateLimitMap.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW);
+  if (timestamps.length >= RATE_LIMIT_MAX) return true;
+  timestamps.push(now);
+  rateLimitMap.set(ip, timestamps);
+  return false;
+}
+
+const ALLOWED_ORIGINS = [
+  'https://east-meridian.com',
+  'https://www.east-meridian.com',
+];
+
+function setCors(req: VercelRequest, res: VercelResponse) {
+  const origin = req.headers.origin ?? '';
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
@@ -41,7 +63,7 @@ function validateFiles(files: FilePayload[]): string | null {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  setCors(res);
+  setCors(req, res);
 
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
@@ -49,6 +71,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ?? 'unknown';
+  if (isRateLimited(ip)) {
+    return res.status(429).json({ error: 'Слишком много заявок. Попробуйте через минуту.' });
   }
 
   const { name, telegram, email, message, files } = req.body ?? {};
@@ -91,7 +118,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text: lines.join('\n'), parse_mode: 'HTML' }),
+      body: JSON.stringify({ chat_id: chatId, text: lines.join('\n') }),
     },
   );
 

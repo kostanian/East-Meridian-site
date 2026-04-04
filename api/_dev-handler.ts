@@ -5,16 +5,16 @@
  * This file is NOT deployed — Vercel uses api/send-lead.ts directly.
  */
 import type { IncomingMessage, ServerResponse } from 'http';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { config as dotenvConfig } from 'dotenv';
 import { resolve } from 'path';
 
 dotenvConfig({ path: resolve(import.meta.dirname, '..', '.env') });
 
-// Minimal shims that satisfy what our handler uses from VercelRequest/VercelResponse
-function parseBody(req: IncomingMessage): Promise<any> {
+function parseBody(req: IncomingMessage): Promise<Record<string, unknown>> {
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = [];
-    req.on('data', (c) => chunks.push(c));
+    req.on('data', (c: Buffer) => chunks.push(c));
     req.on('end', () => {
       try {
         resolve(JSON.parse(Buffer.concat(chunks).toString()));
@@ -31,26 +31,27 @@ export async function handleApiRequest(req: IncomingMessage, res: ServerResponse
 
   const body = req.method === 'POST' ? await parseBody(req) : {};
 
-  // Dynamically import the handler so it picks up env from .env
-  const { default: handler } = await import('./send-lead.js');
+  const { default: handler } = await import('./send-lead.js') as {
+    default: (req: VercelRequest, res: VercelResponse) => Promise<unknown>;
+  };
 
-  // Build a minimal adapter matching what our handler uses
-  const vercelRes: any = {
-    statusCode: 200,
-    _headers: {} as Record<string, string>,
-    setHeader(k: string, v: string) { this._headers[k] = v; return this; },
-    status(code: number) { this.statusCode = code; return this; },
-    json(data: any) {
-      res.writeHead(this.statusCode, { ...this._headers, 'Content-Type': 'application/json' });
+  let statusCode = 200;
+  const headers: Record<string, string> = {};
+
+  const vercelRes = {
+    setHeader(k: string, v: string) { headers[k] = v; return vercelRes; },
+    status(code: number) { statusCode = code; return vercelRes; },
+    json(data: unknown) {
+      res.writeHead(statusCode, { ...headers, 'Content-Type': 'application/json' });
       res.end(JSON.stringify(data));
     },
     end() {
-      res.writeHead(this.statusCode, this._headers);
+      res.writeHead(statusCode, headers);
       res.end();
     },
-  };
+  } as unknown as VercelResponse;
 
-  const vercelReq: any = { method: req.method, body, headers: req.headers };
+  const vercelReq = { method: req.method, body, headers: req.headers } as unknown as VercelRequest;
 
   await handler(vercelReq, vercelRes);
   return true;
