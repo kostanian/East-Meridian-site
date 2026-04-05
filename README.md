@@ -1,73 +1,147 @@
-# Welcome to your Lovable project
+# East Meridian
 
-## Project info
+**Business services in China, delivered end-to-end.**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+[![Live Site](https://img.shields.io/badge/Live-east--meridian.com-dc2626?style=for-the-badge)](https://east-meridian.com)
+[![Blog](https://img.shields.io/badge/Blog-blog.east--meridian.com-f59e0b?style=for-the-badge)](https://blog.east-meridian.com)
 
-## How can I edit this code?
+![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06b6d4?logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel&logoColor=white)
 
-There are several ways of editing your application.
+East Meridian is a B2B service company providing procurement, logistics, warehousing, finance, legal support, and interpreter services in China for businesses across Russia and CIS countries. This repository contains the main marketing website.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Lead Form with Telegram Integration** — Contact form sends submissions directly to Telegram via Bot API (Vercel Serverless Function), including file attachments up to 4 MB (max 10 files)
+- **Smart Form Validation** — Required fields with a confirmation dialog for optional contact methods; blocks dangerous file extensions (.exe, .bat, etc.)
+- **Rate Limiting** — Server-side IP-based rate limiting (5 requests/min) to prevent spam
+- **SEO Optimized** — Open Graph image (1200x630), canonical URL, robots meta, structured meta tags, sitemap reference in robots.txt
+- **Security Headers** — X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy via vercel.json
+- **Blog on Subdomain** — WordPress + Blocksy theme at blog.east-meridian.com (Hostinger), linked from main navigation
+- **Performance Optimized** — All images in WebP, unused dependencies and components removed, CSS bundle reduced from 66 KB to 35 KB
+- **Smooth Animations** — Scroll-triggered animations via Framer Motion
+- **Responsive Design** — Mobile-first with collapsible navigation
 
-Changes made via Lovable will be committed automatically to this repo.
+## Architecture
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+                    ┌─────────────┐
+                    │  Namecheap  │
+                    │     DNS     │
+                    └──────┬──────┘
+                           │
+              ┌────────────┼────────────┐
+              │                         │
+     east-meridian.com        blog.east-meridian.com
+              │                         │
+      ┌───────┴───────┐        ┌───────┴───────┐
+      │    Vercel     │        │   Hostinger   │
+      │               │        │               │
+      │  React SPA    │        │  WordPress    │
+      │  + Serverless │        │  + Blocksy    │
+      │    Function   │        │    Theme      │
+      └───────┬───────┘        └───────────────┘
+              │
+              │  POST /api/send-lead
+              │
+      ┌───────┴───────┐
+      │  Telegram     │
+      │  Bot API      │
+      │               │
+      │  sendMessage  │
+      │  sendDocument │
+      └───────────────┘
 ```
 
-**Edit a file directly in GitHub**
+## Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 18 + TypeScript 5.8 |
+| Build Tool | Vite 5 (SWC) |
+| Styling | Tailwind CSS 3.4 + shadcn/ui |
+| Animations | Framer Motion |
+| Backend | Vercel Serverless Functions (Node.js) |
+| Messaging | Telegram Bot API |
+| Blog | WordPress + Blocksy (Hostinger) |
+| Hosting | Vercel |
+| DNS | Namecheap |
+| CI/CD | GitHub → Vercel (auto-deploy on push) |
 
-**Use GitHub Codespaces**
+## Development Workflow
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+Lovable.dev ──► GitHub repo ──► VS Code + Claude Code / GPT ──► git push ──► Vercel auto-deploy
+(scaffold)      (source)        (development)                    (CI/CD)      (production)
+```
 
-## What technologies are used for this project?
+The project was initially scaffolded with [Lovable.dev](https://lovable.dev) (AI-powered app builder), exported to GitHub, then extensively refactored and optimized in VS Code using Claude Code and GPT.
 
-This project is built with:
+**Optimizations performed:**
+- Removed 20 unused npm packages and 34 unused shadcn/ui components
+- Converted all images from JPG to WebP (total image payload: ~4.7 MB → ~434 KB)
+- CSS bundle: 66 KB → 35 KB (gzip: 12 KB → 7.3 KB)
+- Fixed all TypeScript and ESLint errors
+- Added CORS restrictions, rate limiting, and input sanitization
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Getting Started
 
-## How can I deploy this project?
+```bash
+# Install dependencies
+npm install
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+# Create .env from template
+cp .env.example .env
+# Edit .env with your Telegram bot token and chat ID
 
-## Can I connect a custom domain to my Lovable project?
+# Start dev server (port 8080)
+npm run dev
 
-Yes, you can!
+# Production build
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Environment Variables
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+| Variable | Description |
+|----------|------------|
+| `TELEGRAM_BOT_TOKEN` | Telegram Bot API token (from [@BotFather](https://t.me/BotFather)) |
+| `TELEGRAM_CHAT_ID` | Target chat/group ID for lead notifications |
+
+Set these in Vercel Dashboard → Settings → Environment Variables for production.
+
+## Project Structure
+
+```
+├── api/
+│   ├── send-lead.ts          # Serverless function: form → Telegram
+│   └── _dev-handler.ts       # Dev adapter for Vite
+├── public/                    # Static assets (favicons, og-image, robots.txt)
+├── src/
+│   ├── assets/                # Images (WebP)
+│   ├── components/
+│   │   ├── ui/                # shadcn/ui primitives (15 components)
+│   │   ├── icons/             # Custom SVG icons
+│   │   ├── Navbar.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── AdvantagesSection.tsx
+│   │   ├── FAQSection.tsx
+│   │   ├── CTASection.tsx
+│   │   ├── LeadForm.tsx       # Form with file upload + validation
+│   │   └── Footer.tsx
+│   ├── pages/
+│   │   └── Index.tsx          # Main landing page
+│   ├── data/
+│   │   └── services.ts        # Service categories data
+│   └── App.tsx
+├── vercel.json                # Security headers
+├── index.html                 # Entry point with SEO meta tags
+└── vite.config.ts             # Vite + dev API proxy
+```
+
+## License
+
+All rights reserved. This is a proprietary project for East Meridian.
