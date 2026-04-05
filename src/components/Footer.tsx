@@ -17,12 +17,12 @@ const Footer = () => {
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="text-2xl font-black text-white mb-3 block tracking-wide"
+              className="text-3xl font-black text-white mb-3 block tracking-wide"
             >
               EAST<span className="text-primary"> MERIDIAN</span>
             </a>
             <p className="text-sm leading-relaxed mb-4">
-              Операционная инфраструктура в Китае для бизнеса из России и Казахстана. Решаем задачи «под ключ».
+              Операционная инфраструктура в Китае для бизнеса из России и стран СНГ. Решаем задачи «под ключ».
             </p>
             
           </div>
@@ -70,7 +70,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <TelegramIcon className="h-4 w-4 text-[#26A5E4] shrink-0" />
-                <a href="https://t.me/east_meridian" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @east_meridian</a>
+                <a href="https://t.me/eastmeridian_support" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @eastmeridian_support</a>
               </li>
               <li className="flex items-center gap-2">
                 <WeChatIcon className="h-4 w-4 text-[#07C160] shrink-0" />

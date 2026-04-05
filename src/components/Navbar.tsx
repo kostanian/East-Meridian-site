@@ -35,11 +35,12 @@ const Navbar = () => {
         ? 'bg-[hsl(215,30%,8%)] shadow-lg shadow-black/20'
         : 'bg-[hsl(215,30%,10%)]/85 backdrop-blur-xl'
     } border-b border-white/5`}>
-      <div className="container mx-auto px-4 flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 flex items-center justify-between h-14">
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="text-xl font-black text-white tracking-wide"
+          className="text-4xl font-black text-white tracking-wide"
+          style={{ WebkitTextStroke: '0.5px currentColor' }}
         >
           EAST<span className="text-primary"> MERIDIAN</span>
         </a>
