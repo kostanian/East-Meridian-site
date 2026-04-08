@@ -69,7 +69,7 @@ const serviceCards = [
       'Поиск производителей и проверка поставщика',
     ],
     image: dealSupportImg,
-    imagePosition: 'object-[center_70%]',
+    imagePosition: 'object-[center_30%]',
   },
   {
     title: 'Юридическая поддержка',
