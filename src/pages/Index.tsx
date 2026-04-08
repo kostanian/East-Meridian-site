@@ -69,6 +69,7 @@ const serviceCards = [
       'Поиск производителей и проверка поставщика',
     ],
     image: dealSupportImg,
+    imagePosition: 'object-[center_70%]',
   },
   {
     title: 'Юридическая поддержка',
@@ -161,7 +162,7 @@ const Index = () => {
                     loading="lazy"
                     width={600}
                     height={400}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 ${'imagePosition' in service ? service.imagePosition : ''}`}
                   />
                 </div>
                 <div className="p-6">
