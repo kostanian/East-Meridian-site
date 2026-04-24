@@ -10,6 +10,7 @@ import AdvantagesSection from '@/components/AdvantagesSection';
 import CTASection from '@/components/CTASection';
 import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
+import BlogNewsSection from '@/components/BlogNewsSection';
 
 import logisticsImg from '@/assets/services/logistics.webp';
 import warehouseServicesImg from '@/assets/services/warehouse-services.webp';
@@ -385,6 +386,8 @@ const Index = () => {
       </section>
 
       <CTASection />
+
+      <BlogNewsSection />
     </>
   );
 };
