@@ -66,7 +66,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
-                info@eastmeridian.com
+                info@east-meridian.com
               </li>
               <li className="flex items-center gap-2">
                 <TelegramIcon className="h-4 w-4 text-[#26A5E4] shrink-0" />

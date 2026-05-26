@@ -117,7 +117,7 @@ const casePlaceholders = [
 const contacts = [
   { icon: MapPin, label: 'Мы находимся в', value: 'Гуанчжоу, Китай', color: 'text-primary', bg: 'bg-primary/10' },
   { icon: Phone, label: 'Телефон', value: '+86 132 2205 0 892', link: 'tel:+8613222050892', color: 'text-primary', bg: 'bg-primary/10' },
-  { icon: Mail, label: 'Email', value: 'info@eastmeridian.com', link: 'mailto:info@eastmeridian.com', color: 'text-primary', bg: 'bg-primary/10' },
+  { icon: Mail, label: 'Email', value: 'info@east-meridian.com', link: 'mailto:info@east-meridian.com', color: 'text-primary', bg: 'bg-primary/10' },
   { icon: TelegramIcon, label: 'Telegram', value: '@eastmeridian_support', link: 'https://t.me/eastmeridian_support', color: 'text-[#26A5E4]', bg: 'bg-[#26A5E4]/10' },
   { icon: WeChatIcon, label: 'WeChat', value: 'east_meridian', color: 'text-[#07C160]', bg: 'bg-[#07C160]/10' },
 ];
