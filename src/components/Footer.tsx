@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
 import TelegramIcon from '@/components/icons/TelegramIcon';
 import WeChatIcon from '@/components/icons/WeChatIcon';
 import { serviceCategories } from '@/data/services';
@@ -59,10 +59,6 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
                 Гуанчжоу, Китай
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary shrink-0" />
-                +86 132 2205 0 892
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
